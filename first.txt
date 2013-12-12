@@ -1,0 +1,45 @@
+
+
+def isPalindrome(num):
+
+
+	# caculate the largest dominant of num
+	digits  = getDigits(num)
+
+	while num > 10:
+		high = num / digits
+		low = num %10
+		
+		if low != high: return False
+
+
+		num %= digits
+		num /= 10
+		digits /=100
+
+	return True
+
+
+def getDigits(num):
+	"""
+	num = 20031 return 10000
+	"""
+	res  = 1
+	while num > 10:
+		res *= 10
+		num /=10
+	return res
+
+def main():
+
+	print isPalindrome(232)
+	print isPalindrome(2322)
+	print isPalindrome(2222)
+	print isPalindrome(1123211)
+
+if __name__=="__main__":
+	main()
+
+
+
+
